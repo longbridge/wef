@@ -1,0 +1,35 @@
+/target/
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# CEF files (will be downloaded by cargo-wef)
+.cef/
+*.pak
+*.dat
+*.bin
+*.dll
+*.so
+*.dylib
+libcef.*
+libEGL.*
+libGLESv2.*
+icudtl.dat
+resources.pak
+chrome_*.pak
+snapshot_blob.bin
+v8_context_snapshot.bin
+locales/
