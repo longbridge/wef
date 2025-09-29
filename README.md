@@ -1,4 +1,6 @@
-# Wef - Web Embedding Framework
+# Wef
+
+> Web Embedding Framework
 
 ![CI](https://github.com/longbridge/wef/workflows/CI/badge.svg)
 [![Crates.io](https://img.shields.io/crates/v/wef.svg)](https://crates.io/crates/wef)
@@ -27,7 +29,7 @@ Add `wef` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-wef = "0.7.0"
+wef = "0.6.0"
 ```
 
 ### Install cargo-wef
@@ -64,7 +66,7 @@ For comprehensive documentation, examples, and API reference, see the library do
 This repository contains:
 
 - **Core Library** - The main wef library (in the root directory)
-- **[`tool/`](tool/)** - Command-line tool (`cargo-wef`) for building and managing wef applications  
+- **[`tool/`](tool/)** - Command-line tool (`cargo-wef`) for building and managing wef applications
 - **[`examples/`](examples/)** - Example applications demonstrating wef usage
 
 ## Development
