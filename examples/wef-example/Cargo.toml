@@ -8,5 +8,3 @@ embed-manifest = "1.4.0"
 
 [dependencies]
 wef = { path = "../.." }
-serde = { version = "1.0.219", features = ["derive"] }
-futures-util = "0.3.31"
