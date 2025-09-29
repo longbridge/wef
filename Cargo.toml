@@ -26,7 +26,7 @@ rust-i18n = "3"
 raw-window-handle = "0.6.2"
 smol = "1"
 tracing = "0.1.41"
-notify = "7.0.0"
+notify = "8.2.0"
 lsp-types = "0.97.0"
 
 [workspace.dependencies.windows]
