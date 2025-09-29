@@ -1,0 +1,19 @@
+[package]
+name = "gpui-webview"
+version = "0.1.0"
+edition = "2024"
+authors = ["sunli <scott_s829@163.com>"]
+license = "Apache-2.0"
+homepage = "https://github.com/longbridge/wef"
+repository = "https://github.com/longbridge/wef"
+
+[dependencies]
+wef = { path = "../wef" }
+serde = { version = "1.0.219", features = ["derive"] }
+raw-window-handle = "0.6.2"
+rust-i18n = "3"
+
+image = { version = "0.25.6", default-features = false }
+
+[lints]
+workspace = true

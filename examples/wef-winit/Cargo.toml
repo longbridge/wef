@@ -7,7 +7,7 @@ edition = "2024"
 embed-manifest = "1.4.0"
 
 [dependencies]
-wef = { path = "../.." }
+wef = { path = "../../crates/wef" }
 
 image = "0.25.6"
 winit = "0.30.9"
