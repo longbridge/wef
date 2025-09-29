@@ -31,7 +31,7 @@ lsp-types = "0.97.0"
 
 [workspace.dependencies.windows]
 features = ["Wdk", "Wdk_System", "Wdk_System_SystemServices"]
-version = "0.58.0"
+version = "0.62.1"
 
 [workspace.lints.clippy]
 almost_complete_range = "allow"
