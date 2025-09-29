@@ -57,18 +57,6 @@ fn main() {
 }
 ```
 
-## Documentation
-
-For comprehensive documentation, examples, and API reference, see the library documentation within this repository.
-
-## Project Structure
-
-This repository contains:
-
-- **Core Library** - The main wef library (in the root directory)
-- **[`tool/`](tool/)** - Command-line tool (`cargo-wef`) for building and managing wef applications
-- **[`examples/`](examples/)** - Example applications demonstrating wef usage
-
 ## Development
 
 ### Building
@@ -81,7 +69,7 @@ cargo wef build
 cargo test --all
 
 # Run an example
-cargo wef run --example wef-winit
+cargo wef run -p wef-winit
 ```
 
 ### Requirements
