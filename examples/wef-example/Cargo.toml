@@ -8,3 +8,6 @@ embed-manifest = "1.4.0"
 
 [dependencies]
 wef = { path = "../../crates/wef" }
+gpui-webview = { path = "../../crates/webview" }
+gpui-component = { git = "https://github.com/longbridge/gpui-component.git" }
+gpui = { git = "https://github.com/zed-industries/zed.git" }
