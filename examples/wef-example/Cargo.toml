@@ -11,3 +11,6 @@ wef = { path = "../../crates/wef" }
 gpui-webview = { path = "../../crates/webview" }
 gpui-component = { git = "https://github.com/longbridge/gpui-component.git" }
 gpui = { git = "https://github.com/zed-industries/zed.git" }
+futures-util = "0.3.31"
+serde = { version = "1.0.219", features = ["derive"] }
+flume = "0.11.1"
