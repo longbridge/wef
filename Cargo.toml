@@ -2,6 +2,7 @@
 members = [
     "tool",
     "examples/wef-winit",
+    "examples/wef-example",
 ]
 
 default-members = ["."]

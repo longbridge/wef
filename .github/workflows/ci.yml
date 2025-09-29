@@ -60,7 +60,7 @@ jobs:
       - name: Init CEF
         if: ${{ !steps.cache-cef.outputs.cache-hit }}
         run: |
-          cargo run --bin cargo-wef -- wef init
+          cargo run -p cargo-wef -- wef init
       - name: Typo check
         if: ${{ matrix.run_on == 'macos-latest' }}
         run: |
@@ -73,12 +73,12 @@ jobs:
       - name: Test Linux
         if: ${{ matrix.run_on == 'ubuntu-latest' }}
         run: |
-          cargo run --bin cargo-wef -- wef add-framework target/debug
+          cargo run -p cargo-wef -- wef add-framework target/debug
           cargo test --all
       - name: Test Windows
         if: ${{ matrix.run_on == 'windows-latest' }}
         run: |
-          cargo run --bin cargo-wef -- wef add-framework target/debug
+          cargo run -p cargo-wef -- wef add-framework target/debug
           cargo test --all
       - name: Test macOS
         if: ${{ matrix.run_on == 'macos-latest' }}
