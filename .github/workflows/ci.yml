@@ -1,0 +1,79 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - "*"
+    tags:
+      - "*"
+env:
+  CEF_VERSION: "136.1.6+g1ac1b14+chromium-136.0.7103.114"
+
+jobs:
+  test:
+    name: Test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: aarch64-apple-darwin
+            run_on: macos-latest
+          - target: x86_64-linux-gnu
+            run_on: ubuntu-latest
+          - target: x86_64-windows-msvc
+            run_on: windows-latest
+    runs-on: ${{ matrix.run_on }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          components: clippy
+      - name: Install system dependencies
+        if: ${{ matrix.run_on != 'windows-latest' }}
+        run: script/bootstrap
+      - name: Machete
+        if: ${{ matrix.run_on == 'macos-latest' }}
+        uses: bnjbvr/cargo-machete@v0.9.1
+      - name: Setup | Cache Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: test-cargo-${{ matrix.target }}-${{ hashFiles('**/Cargo.lock') }}
+      - name: Cache CEF
+        id: cache-cef
+        uses: actions/cache@v4
+        with:
+          path: $HOME/.cef
+          key: cef-${{ env.CEF_VERSION }}-${{ matrix.target }}
+      - name: Init CEF
+        if: ${{ !steps.cache-cef.outputs.cache-hit }}
+        run: |
+          cargo run -p cargo-wef -- wef init
+      - name: Typo check
+        if: ${{ matrix.run_on == 'macos-latest' }}
+        run: |
+          cargo install typos-cli || echo "typos-cli already installed"
+          typos
+      - name: Lint
+        if: ${{ matrix.run_on == 'macos-latest' }}
+        run: |
+          cargo clippy -- --deny warnings
+      - name: Test Linux
+        if: ${{ matrix.run_on == 'ubuntu-latest' }}
+        run: |
+          cargo run -p cargo-wef -- wef add-framework target/debug
+          cargo test --all
+      - name: Test Windows
+        if: ${{ matrix.run_on == 'windows-latest' }}
+        run: |
+          cargo run -p cargo-wef -- wef add-framework target/debug
+          cargo test --all
+      - name: Test macOS
+        if: ${{ matrix.run_on == 'macos-latest' }}
+        run: |
+          cargo test --all
