@@ -57,18 +57,14 @@ fn main() {
 
 ## Documentation
 
-For comprehensive documentation, examples, and API reference, see:
-
-- **[Library Documentation](wef/README.md)** - Complete guide to using the wef library
-- **[API Reference](https://docs.rs/wef)** - Detailed API documentation
-- **[Examples](examples/)** - Working examples including winit integration
+For comprehensive documentation, examples, and API reference, see the library documentation within this repository.
 
 ## Project Structure
 
 This repository contains:
 
-- **[`wef/`](wef/)** - The core wef library
-- **[`cargo-wef/`](cargo-wef/)** - Command-line tool for building and managing wef applications  
+- **Core Library** - The main wef library (in the root directory)
+- **[`tool/`](tool/)** - Command-line tool (`cargo-wef`) for building and managing wef applications  
 - **[`examples/`](examples/)** - Example applications demonstrating wef usage
 
 ## Development
@@ -100,4 +96,4 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## License
 
-Licensed under the Apache License, Version 2.0. See [LICENSE-APACHE](wef/LICENSE-APACHE) for details.
+Licensed under the Apache License, Version 2.0. See [LICENSE-APACHE](LICENSE-APACHE) for details.
