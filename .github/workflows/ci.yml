@@ -30,14 +30,7 @@ jobs:
           components: clippy
       - name: Install system dependencies
         if: ${{ matrix.run_on != 'windows-latest' }}
-        run: |
-          if [ "${{ matrix.run_on }}" = "ubuntu-latest" ]; then
-            sudo apt-get update
-            sudo apt-get install -y libglib2.0-dev pkg-config
-          elif [ "${{ matrix.run_on }}" = "macos-latest" ]; then
-            # macOS dependencies if needed
-            echo "macOS setup complete"
-          fi
+        run: script/bootstrap
       - name: Machete
         if: ${{ matrix.run_on == 'macos-latest' }}
         uses: bnjbvr/cargo-machete@v0.9.1
