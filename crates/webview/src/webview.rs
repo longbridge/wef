@@ -6,6 +6,7 @@ use gpui::{
     Subscription, UTF16Selection, WeakEntity, Window, anchored, deferred, div, point, prelude::*,
     px,
 };
+use gpui_component::PixelsExt;
 use wef::{Browser, FuncRegistry, LogicalUnit, Point, Rect};
 
 use crate::{
@@ -114,7 +115,7 @@ impl WebView {
         _cx: &mut Context<Self>,
     ) {
         let (delta_x, delta_y) = match event.delta {
-            gpui::ScrollDelta::Pixels(point) => (point.x.0, point.y.0),
+            gpui::ScrollDelta::Pixels(point) => (point.x.as_f32(), point.y.as_f32()),
             gpui::ScrollDelta::Lines(point) => (point.x * 20.0, point.y * 20.0),
         };
         self.browser().send_mouse_wheel_event(Point::new(

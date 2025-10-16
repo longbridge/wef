@@ -6,6 +6,7 @@ use gpui::{
     IntoElement, LayoutId, MouseDownEvent, MouseMoveEvent, MouseUpEvent, Pixels, RenderImage, Size,
     StyleRefinement, Styled, Window, hsla, point, px, size,
 };
+use gpui_component::PixelsExt;
 use wef::{Browser, LogicalUnit, Rect};
 
 use crate::{WebView, utils::*};
@@ -138,8 +139,8 @@ impl Element for WebViewElement {
             |_, window, _cx| {
                 let scale_factor = window.scale_factor();
                 self.browser.resize(wef::Size::new(
-                    wef::PhysicalUnit((bounds.size.width.0 * scale_factor) as i32),
-                    wef::PhysicalUnit((bounds.size.height.0 * scale_factor) as i32),
+                    wef::PhysicalUnit((bounds.size.width.as_f32() * scale_factor) as i32),
+                    wef::PhysicalUnit((bounds.size.height.as_f32() * scale_factor) as i32),
                 ));
 
                 let image_size = self.view_image.size(0);
@@ -197,8 +198,8 @@ impl Element for WebViewElement {
                     let position = event.position - bounds.origin;
                     webview.browser().send_mouse_move_event(
                         wef::Point::new(
-                            wef::LogicalUnit(position.x.0 as i32),
-                            wef::LogicalUnit(position.y.0 as i32),
+                            wef::LogicalUnit(position.x.as_f32() as i32),
+                            wef::LogicalUnit(position.y.as_f32() as i32),
                         ),
                         to_wef_key_modifiers(&event.modifiers),
                     );

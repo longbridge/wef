@@ -2,7 +2,7 @@ use std::{rc::Rc, sync::Arc};
 
 use gpui::{AnyWindowHandle, AppContext, AsyncApp, ParentElement, RenderImage, Styled, WeakEntity};
 use gpui_component::{
-    ContextModal,
+    ContextModal, PixelsExt,
     input::{InputState, TextInput},
     v_flex,
 };
@@ -236,8 +236,8 @@ impl BrowserHandler for WebViewHandler {
                 cx.update_entity(&entity, |webview, cx| {
                     webview.context_menu = Some(ContextMenuInfo {
                         crood: Point::new(
-                            LogicalUnit(params.crood.x.0 + webview.bounds.origin.x.0 as i32),
-                            LogicalUnit(params.crood.y.0 + webview.bounds.origin.y.0 as i32),
+                            LogicalUnit(params.crood.x.0 + webview.bounds.origin.x.as_f32() as i32),
+                            LogicalUnit(params.crood.y.0 + webview.bounds.origin.y.as_f32() as i32),
                         ),
                         frame,
                         menu: build_context_menu(webview, &params, window, cx),

@@ -2,6 +2,13 @@
 
 > Web Embedding Framework
 
+> [!WARNING]
+> This is an experimental project, we was tried to build a offscreen rendering WebView for solve GPUI render level issues in game engine, but there still not good enough.
+>
+> For example, the app size (included a CEF Framework increase 1GB), development experience, etc.
+>
+> So, we are still use [Wry](https://github.com/longbridge/gpui-component/blob/main/crates/ui/src/webview.rs) in [Longbridge](https://longbridge.com/desktop) desktop app for now.
+
 ![CI](https://github.com/longbridge/wef/workflows/CI/badge.svg)
 [![Crates.io](https://img.shields.io/crates/v/wef.svg)](https://crates.io/crates/wef)
 [![Documentation](https://docs.rs/wef/badge.svg)](https://docs.rs/wef)
