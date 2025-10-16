@@ -115,7 +115,7 @@ where
         }
     }
 
-    /// Cosumes the builder and creates a [`Browser`] instance.
+    /// Consumes the builder and creates a [`Browser`] instance.
     ///
     /// The creation of the browser is asynchronous, and the
     /// [`BrowserHandler::on_created`] method will be called upon completion.

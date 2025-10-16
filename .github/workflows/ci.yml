@@ -3,11 +3,15 @@ on:
   pull_request:
   push:
     branches:
-      - "*"
+      - main
     tags:
       - "*"
 env:
   CEF_VERSION: "136.1.6+g1ac1b14+chromium-136.0.7103.114"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.ref_name == 'main' && github.sha || 'anysha' }}
+  cancel-in-progress: true
 
 jobs:
   test:
