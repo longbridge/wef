@@ -9,7 +9,7 @@ embed-manifest = "1.4.0"
 [dependencies]
 wef = { path = "../../crates/wef" }
 gpui-webview = { path = "../../crates/webview" }
-gpui-component = "0.2.0"
+gpui-component = "0.3.1"
 gpui = "0.2.0"
 futures-util = "0.3.31"
 serde = { version = "1.0.219", features = ["derive"] }
